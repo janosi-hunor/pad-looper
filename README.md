@@ -15,10 +15,4 @@ Open `index.html` in Chrome or Edge, click to start, and allow MIDI (and the mic
 The lowest and highest key follow octave shifts. Key, pad channel and knob assignments can be changed in the ⚙ menu.
 Without a controller: keys A–J play notes, 1–8 are pads, R and L are the record and loop keys.
 
-## Running from a local server (optional)
-
-```bash
-python -m http.server 8770 --bind 127.0.0.1
-```
-
-Then open http://localhost:8770.
+Everything is in the one HTML file; there is nothing to install or run.
