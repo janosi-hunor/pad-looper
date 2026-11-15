@@ -1,7 +1,10 @@
 # Pad Looper
 
 A single-page browser looper for a 25-key MIDI controller with 8 pads and 8 knobs (built around the Akai MPK mini).
-Open `index.html` in Chrome or Edge, click to start, and allow MIDI (and the microphone if you want to record your voice).
+
+**Try it: https://janosi-hunor.github.io/pad-looper/**
+
+Open that link (or `index.html`) in Chrome or Edge, click to start, and allow MIDI (and the microphone if you want to record your voice).
 
 ## Controls
 
@@ -13,6 +16,6 @@ Open `index.html` in Chrome or Edge, click to start, and allow MIDI (and the mic
 - **Record to file:** the header button records everything you hear plus the mic and downloads it as a WAV.
 
 The lowest and highest key follow octave shifts. Key, pad channel and knob assignments can be changed in the ⚙ menu.
-Without a controller: keys A–J play notes, 1–8 are pads, R and L are the record and loop keys.
+Without a controller: keys A–J play notes, 1–8 are pads, Shift is the record key and Space is the loop key.
 
 Everything is in the one HTML file; there is nothing to install or run.

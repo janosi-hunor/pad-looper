@@ -96,7 +96,7 @@
 <footer>
   <div id="pads"></div>
   <div id="hint">Lowest key → pad = record (hit the pad again to stop) · pad = play · highest key → pad = loop · pad again = stop · mic is recorded together with the keys · each knob = volume of the pad in the same position<br>
-    No controller? Keys A–J play notes, 1–8 are pads, R = record key, L = loop key.</div>
+    No controller? Keys A–J play notes, 1–8 are pads, Shift = record key, Space = loop key.</div>
 </footer>
 <div id="toast"></div>
 
@@ -685,12 +685,16 @@ const KEYMAP = { a: 60, w: 61, s: 62, e: 63, d: 64, f: 65, t: 66, g: 67, y: 68, 
 addEventListener('keydown', e => {
   if (!ac || e.repeat || e.ctrlKey || e.metaKey) return;
   const k = e.key.toLowerCase();
-  if (k === 'r') arm('rec');
-  else if (k === 'l') arm('loop');
+  if (e.code === 'Space') e.preventDefault();          // don't scroll or press a focused button
+  if (e.key === 'Shift') arm('rec');
+  else if (e.code === 'Space') arm('loop');
   else if (k >= '1' && k <= '8' && padNotes[k - 1] !== undefined) padHit(padNotes[k - 1]);
   else if (KEYMAP[k]) liveOn(KEYMAP[k], 96);
 });
-addEventListener('keyup', e => { const n = KEYMAP[e.key.toLowerCase()]; if (ac && n) liveOff(n); });
+addEventListener('keyup', e => {
+  if (e.code === 'Space') e.preventDefault();
+  const n = KEYMAP[e.key.toLowerCase()]; if (ac && n) liveOff(n);
+});
 
 $('#start').onclick = () => {
   $('#start').remove();
